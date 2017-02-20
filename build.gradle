@@ -5,16 +5,16 @@ archivesBaseName = 'planet'
 group = 'etri'
 version = '1.0'
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-[compileJava,compileTestJava]*.options*.encoding = 'UTF-8'
-
 sourceSets {
 	api
-	main {
-		compileClasspath += files(api.output.classesDir)
-	}
+//	main {
+//		compileClasspath += files(api.output.classesDir)
+//	}
 }
 classes.dependsOn apiClasses
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+[compileJava,compileApiJava,compileTestJava]*.options*.encoding = 'UTF-8'
 
 repositories {
 	mavenCentral()
@@ -25,9 +25,16 @@ repositories {
 }
 
 dependencies {
+	childProjects.values().each { compile it }
+	
 	compile "org.slf4j:slf4j-log4j12:${slf4j_version}"
 	compile "net.jcip:jcip-annotations:${jcip_annotation_version}"
 	compile "com.google.guava:guava:${guava_version}"
+}
+
+task apiJar(type: Jar) {
+	classifier 'api'
+	from sourceSets.api.output.classesDir
 }
 
 task sourceJar(type: Jar) {
@@ -41,6 +48,7 @@ task javadocJar(type: Jar) {
 }
 
 artifacts {
+	archives apiJar
 	archives sourceJar
 	archives javadocJar
 }

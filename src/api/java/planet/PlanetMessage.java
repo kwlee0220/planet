@@ -1,8 +1,5 @@
 package planet;
 
-
-
-
 /**
  * 
  * @author Kang-Woo Lee
