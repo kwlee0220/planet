@@ -7,7 +7,6 @@ import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 import planet.AbstractProxyCallHandler;
-import planet.InvalidArgumentException;
 import planet.PlanetSession;
 import planet.RemoteReference;
 import planet.SystemException;
@@ -110,7 +109,6 @@ class RemoteProxyCallHandler extends AbstractProxyCallHandler {
 	
 	private static final Set<Class> ALLOWED_UNDECLARED_EXCEPTIONS = new HashSet<Class>();
 	static {
-		ALLOWED_UNDECLARED_EXCEPTIONS.add(InvalidArgumentException.class);
 		ALLOWED_UNDECLARED_EXCEPTIONS.add(IllegalArgumentException.class);
 		ALLOWED_UNDECLARED_EXCEPTIONS.add(IllegalStateException.class);
 	}

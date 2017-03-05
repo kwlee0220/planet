@@ -10,7 +10,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.locks.ReentrantLock;
 
-import planet.InvalidArgumentException;
 import planet.PlanetUtils;
 import planet.SystemException;
 import planet.transport.Connection;
@@ -276,7 +275,7 @@ public class TransportManagerImpl implements TransportManager {
 	public ConnectionImpl getConnection(String planetId, boolean create)
 		throws IOException, InterruptedException {
 		if ( m_id.equals(planetId) ) {
-			throw new InvalidArgumentException("Cannot get the connection to myself: id=" + planetId);
+			throw new IllegalArgumentException("Cannot get the connection to myself: id=" + planetId);
 		}
 		
 		ConnectionImpl conn = null;

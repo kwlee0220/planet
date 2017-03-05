@@ -5,7 +5,6 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.Set;
 
-import planet.InvalidArgumentException;
 import planet.PlanetProxy;
 import planet.PlanetUtils;
 import planet.Remote;
@@ -26,13 +25,13 @@ public class PlanetProxyFactory {
 
 	public PlanetProxy newProxy(String key, String path, Class<?>... types) {
 		if ( key == null ) {
-			throw new InvalidArgumentException("remote PlanetServer id was null");
+			throw new IllegalArgumentException("remote PlanetServer id was null");
 		}
 		if ( path == null ) {
-			throw new InvalidArgumentException("servant path was null");
+			throw new IllegalArgumentException("servant path was null");
 		}
 		if ( types == null ) {
-			throw new InvalidArgumentException("fails to create proxy: types are null");
+			throw new IllegalArgumentException("fails to create proxy: types are null");
 		}
 
 		key = PlanetUtils.resolovePlanetKey(key);
@@ -71,13 +70,13 @@ public class PlanetProxyFactory {
 
 	public PlanetProxy createLocalPlanetProxy(Object src, String path, Class<?>... remoteTypes) {
 		if ( src == null ) {
-			throw new InvalidArgumentException("source object was null");
+			throw new IllegalArgumentException("source object was null");
 		}
 		if ( path == null ) {
-			throw new InvalidArgumentException("servant path was null");
+			throw new IllegalArgumentException("servant path was null");
 		}
 		if ( remoteTypes == null || remoteTypes.length == 0 ) {
-			throw new InvalidArgumentException("invalid proxy types");
+			throw new IllegalArgumentException("invalid proxy types");
 		}
 
 		if ( src instanceof PlanetProxy || src instanceof Remote ) {

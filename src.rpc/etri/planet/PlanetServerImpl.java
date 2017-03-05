@@ -12,7 +12,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 import planet.ConnectionInfo;
 import planet.Directory;
-import planet.InvalidArgumentException;
 import planet.PersistentServant;
 import planet.PlanetContext;
 import planet.PlanetServer;
@@ -81,7 +80,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 
 	public PlanetServerImpl(String id, Directory rootDir) {
 		if ( rootDir == null ) {
-			throw new InvalidArgumentException("Root ServantDirectory was null.");
+			throw new IllegalArgumentException("Root ServantDirectory was null.");
 		}
 
 		m_host = PlanetUtils.LOCAL_HOST;
@@ -228,7 +227,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 	@Override
 	public synchronized void setPlanetServerHost(String host) throws SystemException {
 		if ( host == null ) {
-			throw new InvalidArgumentException("host was null");
+			throw new IllegalArgumentException("host was null");
 		}
 
 		if ( m_state != NOT_STARTED ) {
@@ -270,7 +269,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 	@Override @SuppressWarnings("unchecked")
 	public <T> T createProxy(String phn, String path, Class<T> type) {
 		if ( type == null ) {
-			throw new InvalidArgumentException("proxy type was null");
+			throw new IllegalArgumentException("proxy type was null");
 		}
 
 		return (T)createProxy(phn, path, new Class<?>[]{type});
@@ -294,7 +293,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 	public PlanetSession getPlanetSession(String remoteKey, boolean create)
 		throws IOException, InterruptedException {
 		if ( remoteKey == null ) {
-			throw new InvalidArgumentException("remoteKey was null");
+			throw new IllegalArgumentException("remoteKey was null");
 		}
 
 		return m_sessionManager.getPlanetSession(remoteKey, create);
@@ -304,7 +303,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 	public PlanetSession getPlanetSession(Remote remote, boolean create)
 		throws IOException, InterruptedException {
 		if ( remote == null ) {
-			throw new InvalidArgumentException("remote was null");
+			throw new IllegalArgumentException("remote was null");
 		}
 
 		return m_sessionManager.getPlanetSession(remote.getPlanetId(), create);
@@ -313,7 +312,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 	@Override
 	public boolean existsPlanetSession(String remoteKey) {
 		if ( remoteKey == null ) {
-			throw new InvalidArgumentException("remoteHost was null");
+			throw new IllegalArgumentException("remoteHost was null");
 		}
 
 		return m_transport.existsConnection(remoteKey);
@@ -392,7 +391,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 	public void addServant(PersistentServant servant)
 		throws ServantNotFoundException, ServantExistsException {
 		if ( servant == null ) {
-			throw new InvalidArgumentException("servant was null");
+			throw new IllegalArgumentException("servant was null");
 		}
 
 		m_servantManager.addServant(servant);
@@ -597,7 +596,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 	@Override
 	public void closeSession(String id) {
 		if ( id == null ) {
-			throw new InvalidArgumentException("session key was null");
+			throw new IllegalArgumentException("session key was null");
 		}		
 		try {
 			PlanetSession session = m_sessionManager.getPlanetSession(id, false);
@@ -611,7 +610,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 	@Override
 	public Collection<String> getServantIdsOfSession(String id) {
 		if ( id == null ) {
-			throw new InvalidArgumentException("session key was null");
+			throw new IllegalArgumentException("session key was null");
 		}		
 		try {
 			PlanetSession session = m_sessionManager.getPlanetSession(id, false);
