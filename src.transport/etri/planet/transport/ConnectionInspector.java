@@ -1,7 +1,8 @@
 package etri.planet.transport;
 
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -9,7 +10,7 @@ import org.apache.log4j.Logger;
  * @author Kang-Woo Lee
  */
 class ConnectionInspector implements Runnable {
-	private static final Logger s_logger = Logger.getLogger("PLANET.HEARTBEAT");
+	private static final Logger s_logger = LoggerFactory.getLogger("PLANET.HEARTBEAT");
 
 	private final TransportManagerImpl m_transport;
 	private long m_hbPeriod;

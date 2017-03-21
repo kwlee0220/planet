@@ -7,7 +7,8 @@ import java.util.concurrent.Executor;
 
 import planet.PlanetUtils;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;	
 
 
 
@@ -16,7 +17,7 @@ import org.apache.log4j.Logger;
  * @author Kang-Woo Lee (ETRI)
  */
 class IoProcessor implements Runnable {
-	private static final Logger s_logger = Logger.getLogger("PLANET.CHANNEL");
+	private static final Logger s_logger = LoggerFactory.getLogger("PLANET.CHANNEL");
 
 	private final BlockingQueue<ConnectionImpl> m_ioReadyQ;
 	private final Executor m_executor;

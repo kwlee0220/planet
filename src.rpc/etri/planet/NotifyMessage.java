@@ -1,20 +1,19 @@
 package etri.planet;
 
-
-
 import java.lang.reflect.Method;
 
 import planet.PlanetUtils;
 import planet.SystemException;
 import planet.idl.IgnoreLogging;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import etri.planet.thread.TimedThread;
 
 
 public class NotifyMessage extends InvocationMessage {
-	private static final Logger s_logger = Logger.getLogger(NotifyMessage.class);
+	private static final Logger s_logger = LoggerFactory.getLogger(NotifyMessage.class);
 	
 	public NotifyMessage(PlanetServerImpl planet, String path, Method method, Object[] args) {
 		super(planet, MSG_NOTIFY, path, method, args);

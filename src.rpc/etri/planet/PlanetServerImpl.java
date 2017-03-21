@@ -29,7 +29,8 @@ import planet.UndeclaredTypeException;
 import planet.transport.Connection;
 import planet.transport.TransportManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import etri.planet.servant.MappedDirectory;
 import etri.planet.servant.ServantManager;
@@ -43,7 +44,7 @@ import etri.planet.transport.TransportManagerImpl;
  * @author Kang-Woo Lee
  */
 public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentServant {
-	private static final Logger s_logger = Logger.getLogger("PLANET.SERVER");
+	private static final Logger s_logger = LoggerFactory.getLogger("PLANET.SERVER");
 
 	public static final int DEFAULT_PORT = 0;
     private static final int DEFAULT_THREADS = 8;
@@ -134,7 +135,7 @@ public class PlanetServerImpl implements PlanetServer, RemotePlanet, PersistentS
 							hook.run();
 						}
 						catch ( Throwable e ) {
-							s_logger.error(e);
+							s_logger.error("fails to shutdown", e);
 						}
     				}
     			}

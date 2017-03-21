@@ -14,7 +14,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -23,7 +24,7 @@ import org.apache.log4j.Logger;
  */
 public final class TimedScheduledExecutorService extends AbstractTimedExecutor
 											implements ScheduledExecutorService {
-	private static final Logger s_logger = Logger.getLogger("PLANET.SCHEDULER");
+	private static final Logger s_logger = LoggerFactory.getLogger("PLANET.SCHEDULER");
 	
 	private final TimedThread[] m_threads;
 	private final ScheduledExecutorService m_executor;
@@ -55,7 +56,7 @@ public final class TimedScheduledExecutorService extends AbstractTimedExecutor
 				}
 			}
 			
-			s_logger.fatal("Should be here");
+			s_logger.error("Should be here");
 			throw new RuntimeException("Should be here");
 		}
 	}

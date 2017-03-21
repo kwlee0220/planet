@@ -121,12 +121,12 @@ class IoScheduler implements Runnable {
 		}
 		catch ( IOException e ) {
 			if ( !m_normalShutdown ) {
-				TransportLoggers.SELECTOR.fatal("failed: IoScheduler (Selector closed)", e);
+				TransportLoggers.SELECTOR.error("failed: IoScheduler (Selector closed)", e);
 			}
 		}
 		catch ( ClosedSelectorException e ) {
 			if ( !m_normalShutdown ) {
-				TransportLoggers.SELECTOR.fatal("shutdown: IoScheduler (Selector closed)");
+				TransportLoggers.SELECTOR.error("shutdown: IoScheduler (Selector closed)");
 			}
 		}
 	}

@@ -2,10 +2,8 @@ package etri.planet.thread;
 
 import planet.PlanetUtils;
 
-import org.apache.log4j.Logger;
-
-
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -13,7 +11,7 @@ import org.apache.log4j.Logger;
  * @author Kang-Woo Lee
  */
 class TimedRunnable extends TimedTask implements Runnable {
-	private static final Logger s_logger = Logger.getLogger("PLANET.SCHEDULER");
+	private static final Logger s_logger = LoggerFactory.getLogger("PLANET.SCHEDULER");
 	
 	private final Runnable m_worker;
 	

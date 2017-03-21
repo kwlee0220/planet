@@ -29,7 +29,8 @@ import planet.SystemException;
 import planet.UndeclaredTypeException;
 import planet.transport.InputChannel;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
 
@@ -44,7 +45,7 @@ import event.support.EventBuilder;
  * @author Kang-Woo Lee (ETRI)
  */
 public class PlanetReader {
-	private static final Logger s_logger = Logger.getLogger(PlanetReader.class);
+	private static final Logger s_logger = LoggerFactory.getLogger(PlanetReader.class);
 
 	private final PlanetSessionImpl m_session;
 	protected final InputChannel m_ichannel;

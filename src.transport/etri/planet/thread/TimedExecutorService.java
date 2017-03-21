@@ -15,7 +15,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -24,7 +25,7 @@ import org.apache.log4j.Logger;
  */
 public final class TimedExecutorService extends AbstractTimedExecutor
 									implements ExecutorService {
-	private static final Logger s_logger = Logger.getLogger("PLANET.EXECUTOR");
+	private static final Logger s_logger = LoggerFactory.getLogger("PLANET.EXECUTOR");
 	
 	private final CopyOnWriteArrayList<TimedThread> m_threadList;
 	private final ThreadPoolExecutor m_executor;
