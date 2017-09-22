@@ -26,10 +26,6 @@ repositories {
 dependencies {
 	compile project(':utils')
 	compile project(':event')
-	
-	compile "org.slf4j:slf4j-log4j12:${slf4j_version}"
-	compile "net.jcip:jcip-annotations:${jcip_annotation_version}"
-	compile "com.google.guava:guava:${guava_version}"
 }
 
 task sourceJar(type: Jar) {
