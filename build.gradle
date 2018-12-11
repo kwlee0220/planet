@@ -17,10 +17,6 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
 	mavenCentral()
-	maven {
-		name = 'dist'
-		url = "file:${distRepositoryDir}"
-	}
 }
 
 dependencies {
@@ -41,14 +37,6 @@ task javadocJar(type: Jar) {
 artifacts {
 	archives sourceJar
 	archives javadocJar
-}
-
-uploadArchives {
-	repositories {
-		mavenDeployer {
-			repository(url: "file:${distRepositoryDir}")
-		}
-	}
 }
 
 apply plugin: 'eclipse'
