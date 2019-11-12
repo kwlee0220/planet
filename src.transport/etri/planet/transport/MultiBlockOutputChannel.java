@@ -6,12 +6,13 @@ import java.nio.ByteBuffer;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
+import javax.annotation.concurrent.GuardedBy;
+
 import planet.transport.Connection;
 import planet.transport.OutputChannel;
 import planet.transport.TransportManager;
 
 import etri.planet.TransportLoggers;
-import net.jcip.annotations.GuardedBy;
 
 /**
  * 

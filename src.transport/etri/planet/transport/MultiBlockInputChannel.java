@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
+import javax.annotation.concurrent.GuardedBy;
+
 import planet.PlanetUtils;
 import planet.SystemException;
 import planet.transport.Connection;
@@ -15,7 +17,6 @@ import planet.transport.InputChannel;
 import planet.transport.TransportManager;
 
 import etri.planet.TransportLoggers;
-import net.jcip.annotations.GuardedBy;
 
 
 /**

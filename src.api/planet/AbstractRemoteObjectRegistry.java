@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 
-import planet.transport.Connection;
+import javax.annotation.concurrent.GuardedBy;
 
-import net.jcip.annotations.GuardedBy;
+import planet.transport.Connection;
 
 
 /**

@@ -22,6 +22,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
+import javax.annotation.concurrent.GuardedBy;
+
 import planet.DisconnectionHandler;
 import planet.PlanetUtils;
 import planet.SystemException;
@@ -32,7 +34,6 @@ import planet.transport.TransportManager;
 
 import etri.planet.TransportLoggers;
 import etri.planet.thread.TimedThread;
-import net.jcip.annotations.GuardedBy;
 
 
 /**

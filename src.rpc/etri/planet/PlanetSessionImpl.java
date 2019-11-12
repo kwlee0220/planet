@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.annotation.concurrent.GuardedBy;
+
 import planet.CallTimeoutException;
 import planet.DisconnectionHandler;
 import planet.PlanetContext;
@@ -32,7 +34,6 @@ import planet.transport.OutputChannel;
 
 import etri.planet.servant.SessionBoundServant;
 import etri.planet.transport.ConnectionImpl;
-import net.jcip.annotations.GuardedBy;
 
 
 /**
